@@ -21,9 +21,13 @@ export default function Home() {
   return (
     <>
       <Header />
-      <Headline title="Index Page" />
+      <div
+        className={`${styles.page} ${geistSans.variable} ${geistMono.variable}`}
+      >
+        <Headline title="Index Page" />
         <Links />
         <Footer />
+      </div>
     </>
   );
 }

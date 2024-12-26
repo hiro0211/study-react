@@ -5,7 +5,6 @@ import styles from "@/styles/Home.module.css";
 import { Footer } from "@/components/Footer";
 import { Links } from "@/components/Links";
 import { Header } from "@/components/Header";
-import { Headline } from "@/components/Headline";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -17,13 +16,11 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export default function Home() {
+export const Headline =(props) =>{
+  const { title } = props;
   return (
     <>
-      <Header />
-      <Headline title="Index Page" />
-        <Links />
-        <Footer />
+      <h1>{title}</h1>
     </>
   );
 }
