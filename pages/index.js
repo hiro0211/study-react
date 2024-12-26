@@ -22,7 +22,7 @@ export default function Home() {
     <>
       <Header />
       <Headline title="Index Page" />
-        <Links />
+        <Links title="INDEX"/>
         <Footer />
     </>
   );

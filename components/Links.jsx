@@ -3,7 +3,8 @@ import Image from "next/image";
 import { Geist, Geist_Mono } from "next/font/google";
 import styles from "@/styles/Home.module.css";
 
-export const Links = () => {
+export const Links = (props) => {
+  const { title, page } = props;
   return (
     <>
       <main className={styles.main}>
@@ -17,9 +18,9 @@ export const Links = () => {
         />
         <ol>
           <li>
-            Get started by editing <code>pages/index.js</code>.
+            Get started by editing <code>pages/{title}.js</code>.
           </li>
-          <li>Save and see your changes instantly.</li>
+          <li>{page}</li>
         </ol>
 
         <div className={styles.ctas}>

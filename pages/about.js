@@ -17,7 +17,8 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export default function Home() {
+export default function Home(props) {
+  const {title } = props;
   return (
     <>
       <Header />
@@ -25,7 +26,7 @@ export default function Home() {
         className={`${styles.page} ${geistSans.variable} ${geistMono.variable}`}
       >
         <Headline title="Index Page" />
-        <Links />
+        <Links title="sss" page="ff"/>
         <Footer />
       </div>
     </>
