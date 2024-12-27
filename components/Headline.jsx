@@ -1,10 +1,5 @@
-import Head from "next/head";
-import Image from "next/image";
 import { Geist, Geist_Mono } from "next/font/google";
 import styles from "@/styles/Home.module.css";
-import { Footer } from "@/components/Footer";
-import { Links } from "@/components/Links";
-import { Header } from "@/components/Header";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -16,11 +11,16 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const Headline =(props) =>{
-  const { title } = props;
+export const Headline = (props) => {
+  console.log(props); // propsを確認
+
+  const { title, code, onClick } = props;
+
   return (
     <>
       <h1>{title}</h1>
+      <p>{code}</p>
+      <button onClick={onClick}>ボタン</button>
     </>
   );
-}
+};

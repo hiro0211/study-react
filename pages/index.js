@@ -21,7 +21,7 @@ export default function Home() {
   return (
     <>
       <Header />
-      <Headline title="Index Page" />
+      <Headline title="Index Page" onClick={() => alert("clicked")}/>
         <Links title="INDEX"/>
         <Footer />
     </>

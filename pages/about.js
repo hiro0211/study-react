@@ -6,6 +6,7 @@ import { Footer } from "@/components/Footer";
 import { Links } from "@/components/Links";
 import { Header } from "@/components/Header";
 import { Headline } from "@/components/Headline";
+import { Children } from "react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -18,15 +19,23 @@ const geistMono = Geist_Mono({
 });
 
 export default function Home(props) {
-  const {title } = props;
+  const { title } = props;
   return (
     <>
       <Header />
       <div
         className={`${styles.page} ${geistSans.variable} ${geistMono.variable}`}
       >
-        <Headline title="Index Page" />
-        <Links title="sss" page="ff"/>
+        <Headline
+          title="Index Page"
+          number={111}
+          array={[1, 2, 3]}
+          code={<span>aaa</span>}
+          onClick={() => alert("clicked")}
+        >
+          
+          </Headline>
+        <Links title="sss" page="ff" />
         <Footer />
       </div>
     </>
