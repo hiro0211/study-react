@@ -3,6 +3,19 @@ import Image from "next/image";
 import { Geist, Geist_Mono } from "next/font/google";
 import styles from "./Links.module.css";
 
+const ITEMS = [
+  {
+    href: "https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app",
+    title: "Deploy now →",
+    style: styles.primary
+  },
+  {
+    href: "https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app",
+    title: "Read our documentation →",
+    style: styles.secondary
+  },
+];
+
 export const Links = (props) => {
   const { title, page } = props;
   return (
@@ -24,7 +37,20 @@ export const Links = (props) => {
         </ol>
 
         <div className={styles.ctas}>
-          <a
+          {ITEMS.map((item) => {
+            return (
+              <a
+                key={item.href}
+                className={item.style}
+                href={item.href}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <h3>{item.title}</h3>
+              </a>
+            );
+          })}
+          {/* <a
             className={styles.primary}
             href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
             target="_blank"
@@ -46,7 +72,7 @@ export const Links = (props) => {
             className={styles.secondary}
           >
             Read our documentation
-          </a>
+          </a> */}
         </div>
       </main>
     </>
