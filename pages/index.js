@@ -1,11 +1,8 @@
-import Head from "next/head";
-import Image from "next/image";
 import { Geist, Geist_Mono } from "next/font/google";
-import styles from "@/styles/Home.module.css";
-import { Footer } from "@/components/Footer";
-import { Links } from "@/components/Links";
-import { Header } from "@/components/Header";
-import { Headline } from "@/components/Headline";
+import { Footer } from "/src/components/Footer/Footer";
+import { Links } from "@/src/components/Links";
+import { Header } from "@/src/components/Header/Header";
+import { Headline } from "@/src/components/Headline/Headline"; 
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -21,9 +18,9 @@ export default function Home() {
   return (
     <>
       <Header />
-      <Headline title="Index Page" onClick={() => alert("clicked")}/>
-        <Links title="INDEX"/>
-        <Footer />
+      <Headline title="Index Page" onClick={() => alert("clicked")} />
+      <Links title="INDEX" />
+      <Footer />
     </>
   );
 }

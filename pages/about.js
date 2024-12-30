@@ -1,11 +1,9 @@
-import Head from "next/head";
-import Image from "next/image";
 import { Geist, Geist_Mono } from "next/font/google";
-import styles from "@/styles/Home.module.css";
-import { Footer } from "@/components/Footer";
-import { Links } from "@/components/Links";
-import { Header } from "@/components/Header";
-import { Headline } from "@/components/Headline";
+import styles from "@/src/styles/Home.module.css";
+import { Footer } from "@/src/components/Footer/Footer";
+import { Links } from "@/src/components/Links";
+import { Header } from "@/src/components/Header/Header";
+import { Headline } from "@/src/components/Headline/Headline";
 import { Children } from "react";
 
 const geistSans = Geist({
@@ -32,9 +30,7 @@ export default function Home(props) {
           array={[1, 2, 3]}
           code={<span>aaa</span>}
           onClick={() => alert("clicked")}
-        >
-          
-          </Headline>
+        ></Headline>
         <Links title="sss" page="ff" />
         <Footer />
       </div>
