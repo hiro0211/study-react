@@ -3,7 +3,7 @@ import { Footer } from "/src/components/Footer/Footer";
 import { Links } from "@/src/components/Links";
 import { Header } from "@/src/components/Header/Header";
 import { Headline } from "@/src/components/Headline/Headline";
-import { useCallback, useEffect } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -16,17 +16,18 @@ const geistMono = Geist_Mono({
 });
 
 export default function Home() {
-  // const handleClick = useCallback((e) => {
-  //   console.log(e.target.href);
-  //   e.preventDefault();
-  // }, []);
+const [count, setCount ] = useState(1);
+  const handleClick = () => {
+    setCount ((count) => count + 1);
+  }
 
   return (
     <>
       <Header />
-      {/* <a href="/about" onClick={handleClick}>
-        ボタン
-      </a> */}
+      <h1>カウントアップ: {count}</h1>
+      <button onClick={handleClick}>
+        カウントアップ
+      </button>
       <Headline title="Index Page" onClick={() => alert("clicked")} />
       <Links title="INDEX" />
       <Footer />
