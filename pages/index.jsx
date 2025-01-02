@@ -16,18 +16,28 @@ const geistMono = Geist_Mono({
 });
 
 export default function Home() {
-const [count, setCount ] = useState(1);
-  const handleClick = () => {
-    setCount ((count) => count + 1);
-  }
+  const [count, setCount] = useState(1);
+  const handleClick = useCallback(
+    (e) => {
+      console.log(count);
+      if (count < 10) {
+        setCount((count) => count + 1);
+      }
+    },[count]);
+
+    useEffect(() => {
+      document.body.style.backgroundColor = "lightblue";
+      return () => {
+        document.body.style.backgroundColor = "";
+      };
+    }, []);
+    
 
   return (
     <>
       <Header />
       <h1>カウントアップ: {count}</h1>
-      <button onClick={handleClick}>
-        カウントアップ
-      </button>
+      <button onClick={handleClick}>カウントアップ</button>
       <Headline title="Index Page" onClick={() => alert("clicked")} />
       <Links title="INDEX" />
       <Footer />
