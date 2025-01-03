@@ -19,12 +19,13 @@ export default function Home() {
   const [count, setCount] = useState(1);
   const [text, setText] = useState("");
   const [isShow, setIsShow] = useState(false);
+  const [array, setSArray] = useState([]);
 
   const handleClick = useCallback(
     (e) => {
       console.log(count);
       if (count < 10) {
-        setCount((count) => count + 1);
+        setCount((prevcount) => prevcountf + 1);
       }
     },
     [count]
@@ -38,9 +39,9 @@ export default function Home() {
   }, []);
 
   const handleChange = useCallback((e) => {
-    if (e.target.value.length > 5){
-      alert("5文字以内にしてください")
-      return 
+    if (e.target.value.length > 5) {
+      alert("5文字以内にしてください");
+      return;
     }
     setText(e.target.value.trim());
   }, []);
@@ -49,7 +50,16 @@ export default function Home() {
     setIsShow((isShow) => {
       return !isShow;
     });
-  })
+  });
+
+  const handleAdd = useCallback(() => {
+    setSArray((prevArray) => {
+      if (prevArray.some(item => item === text)){
+        alert("同じ項目が存在します");
+        return prevArray;
+      }
+      return [...prevArray, text];});
+  }, [text]);
 
   return (
     <>
@@ -59,7 +69,13 @@ export default function Home() {
       <input type="text" value={text} onChange={handleChange} />
       <Headline title="Index Page" onClick={() => alert("clicked")} />
       <button onClick={handleShow}>表示/非表示</button>
-      {isShow && <Links title="INDEX" /> }  
+      {isShow && <Links title="INDEX" />}
+      <button onClick={handleAdd}>追加</button>
+      <ul>
+        {array.map((item, index) => {
+          return <li key={index}>{item}</li>;
+        })}
+      </ul>
       <Footer />
     </>
   );
