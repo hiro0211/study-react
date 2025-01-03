@@ -17,29 +17,49 @@ const geistMono = Geist_Mono({
 
 export default function Home() {
   const [count, setCount] = useState(1);
+  const [text, setText] = useState("");
+  const [isShow, setIsShow] = useState(false);
+
   const handleClick = useCallback(
     (e) => {
       console.log(count);
       if (count < 10) {
         setCount((count) => count + 1);
       }
-    },[count]);
+    },
+    [count]
+  );
 
-    useEffect(() => {
-      document.body.style.backgroundColor = "lightblue";
-      return () => {
-        document.body.style.backgroundColor = "";
-      };
-    }, []);
-    
+  useEffect(() => {
+    document.body.style.backgroundColor = "lightblue";
+    return () => {
+      document.body.style.backgroundColor = "";
+    };
+  }, []);
+
+  const handleChange = useCallback((e) => {
+    if (e.target.value.length > 5){
+      alert("5文字以内にしてください")
+      return 
+    }
+    setText(e.target.value.trim());
+  }, []);
+
+  const handleShow = useCallback(() => {
+    setIsShow((isShow) => {
+      return !isShow;
+    });
+  })
 
   return (
     <>
       <Header />
       <h1>カウントアップ: {count}</h1>
       <button onClick={handleClick}>カウントアップ</button>
+      <input type="text" value={text} onChange={handleChange} />
       <Headline title="Index Page" onClick={() => alert("clicked")} />
-      <Links title="INDEX" />
+      <button onClick={handleShow}>表示/非表示</button>
+      {isShow && <Links title="INDEX" /> }  
       <Footer />
     </>
   );
