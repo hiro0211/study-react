@@ -20,6 +20,7 @@ export default function About(props) {
     title,
     count,
     isShow,
+    doubleCount,
     handleClick,
     handleShow,
     text,
@@ -40,11 +41,11 @@ export default function About(props) {
           title="ABOUT Page"
           number={111}
           array={[1, 2, 3]}
-          code={<span>{count}</span>}
+          code={<span>{doubleCount}</span>}
           onClick={() => alert("clicked")}
         ></Headline>
         <button onClick={handleShow}>表示/非表示</button>
-        <h1>{title}</h1>
+        <h1>{doubleCount}</h1>
         {isShow && <Links title="ABOUT" />}
         <input type="text" value={text} onChange={handleChange} />
         <button onClick={handleAdd}>追加</button>
