@@ -3,10 +3,6 @@ import { Footer } from "/src/components/Footer/Footer";
 import { Links } from "@/src/components/Links";
 import { Header } from "@/src/components/Header/Header";
 import { Headline } from "@/src/components/Headline/Headline";
-import { useCallback, useEffect, useState } from "react";
-import { useCounter } from "../src/hooks/useCounter";
-import { useArray } from "@/src/hooks/useArray";
-import { useBgLightBlue } from "@/src/hooks/useBgLightBlue";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -18,12 +14,17 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-
-
-export default function Home() {
-  const {count, isShow, handleClick, handleShow} = useCounter();
-  const {text, array, handleChange, handleAdd} = useArray();
-  useBgLightBlue();
+export default function Home(props) {
+  const {
+    count,
+    isShow,
+    handleClick,
+    handleShow,
+    text,
+    array,
+    handleChange,
+    handleAdd,
+  } = props;
 
   return (
     <>
