@@ -1,7 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import styles from "@/src/styles/Home.module.css";
 import { Footer } from "@/src/components/Footer/Footer";
-import { Links } from "@/src/components/Links";
+import { Links } from "@/src/components/Links/Links";
 import { Header } from "@/src/components/Header/Header";
 import { Headline } from "@/src/components/Headline/Headline";
 
